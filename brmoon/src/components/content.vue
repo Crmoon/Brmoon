@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <h3>{{content.title}}</h3>
-        <span>{{content.content1}}</span>
+        <span v-html="content.content1"></span>
         <comment></comment>
     </div>
 </template>
@@ -82,5 +82,13 @@
 .content{
     width: 60%;
     box-shadow: 2px 2px 1px #ddd;
+}
+pre{
+    padding: 10px;
+    background-color: #333;
+    display: inline-block;
+    color: #fff;
+    border-radius: 5px;
+    width: 96%;
 }
 </style>

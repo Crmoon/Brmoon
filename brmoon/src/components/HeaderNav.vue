@@ -23,7 +23,7 @@
             <span>标题</span>
             <input type="text" value="" v-model="Title">
             <p>内容</p>
-            <textarea name="" id="" cols="30" rows="10" v-model="conrent"></textarea>
+            <textarea name="" id="" cols="30" rows="10" v-model="conrent" @keydown="textareaTab()"></textarea>
             <p class="add_push" @click="add_push()">发布</p>
         </div>
         <div class="shade" v-show="loginShow||addAArticle" @click="loginHide()"></div>
@@ -128,7 +128,7 @@
                 info.title=_this.Title;
                 info.ArticleType=1;
                 info.ArticleId=Math.floor(Math.random()*40)+1000;
-                text=this.conrent.replace(/\'/g,"''");
+                text=window.Pushtext.Pushtext(this.conrent);
                 console.log(text);
                 info.content=text;
                 parmar.info=info;
@@ -146,6 +146,21 @@
                 }).catch(function(res){
                     console.log("请求数据错误");
                 })
+            },
+            textareaTab(e){
+                e = window.event || e;
+                if(e.keyCode==9){
+                    e.preventDefault();
+                    var indent = '    ';
+                    var start = e.target.selectionStart;
+                    var end = e.target.selectionEnd;
+                    var selected = window.getSelection().toString();
+                    selected = indent + selected.replace(/\n/g, '\n' + indent);
+                    e.target.value = e.target.value.substring(0, start) + selected
+                            + e.target.value.substring(end);
+                    e.target.setSelectionRange(start + indent.length, start
+                            + selected.length);
+                }
             }
         },
         computed:{
