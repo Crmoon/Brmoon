@@ -27,7 +27,7 @@
             const _this=this
             _this.$axios({
                 methods:'GET',
-                url:'http://localhost:8806/index.php?title=刀剑寒&type=article_content',
+                url:_this.Group.Url+'index.php?title=canvas绘制星级&type=article_content',
                 scriptCharset: 'utf-8'
             }).then(function(res){
                 _this.content.title=res.data.title;
@@ -58,7 +58,7 @@
                 const _this=this
                 _this.$axios({
                     methods:'GET',
-                    url:'http://localhost:8806/index.php?title='+_this.title+'&type=article_content',
+                    url:_this.Group.Url+'index.php?title='+_this.title+'&type=article_content',
                     scriptCharset: 'utf-8'
                 }).then(function(res){
 
@@ -90,5 +90,9 @@ pre{
     color: #fff;
     border-radius: 5px;
     width: 96%;
+    word-wrap: break-word;
+    word-break:break-all;
+    white-space: pre-wrap;
+    line-height: 20px;
 }
 </style>

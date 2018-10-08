@@ -46,15 +46,7 @@
                 passWord:'',
                 userName:'',
                 headName:'碎月的个人网站',
-                rightNav:[{
-                    url:'http://localhost:8806//',
-                    name:'哩子',
-                    met:'Individual()'
-                },{
-                    url:'http://localhost:8806//list',
-                    name:'目录',
-                    met:'ToggleList()'
-                }]
+                rightNav:[]
             }
         },
         methods:{
@@ -97,7 +89,7 @@
                 _this.loginShow=false;
                 _this.$axios({
                     method: 'post',
-                    url:'http://localhost:8806/postComment.php',
+                    url:_this.Group.Url+'postComment.php',
                     data: postData,
                     }).then(function(res){
                         if(res.data){
@@ -139,7 +131,7 @@
                     // data:JSON.stringify(parmar),
                 _this.$axios({
                     method: 'post',
-                    url:'http://localhost:8806/postComment.php',
+                    url:_this.Group.Url+'postComment.php',
                     data: postData,
                     }).then(function(res){
                         console.log("发布成功");

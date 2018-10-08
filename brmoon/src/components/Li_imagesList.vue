@@ -153,7 +153,7 @@ export default {
     const _this=this
     _this.$axios({
         methods:'GET',
-        url:'http://localhost:8806/index.php?type=ablumList',
+        url:_this.Group.Url+'index.php?type=ablumList',
         scriptCharset: 'utf-8'
     }).then(function(res){
         _this.ablumList=res.data;
@@ -232,13 +232,13 @@ export default {
                 // data:JSON.stringify(parmar),
             _this.$axios({
                 method: 'post',
-                url:'http://localhost:8806/upload.php',
+                url:_this.Group.Url+'upload.php',
                 data: postData,
             }).then(function(res){
                 //刷新图片
                 _this.$axios({
                     methods:'GET',
-                    url:'http://localhost:8806/index.php?ablumid='+ _this.ablumSelectId+'&type=imgList',
+                    url:_this.Group.Url+'index.php?ablumid='+ _this.ablumSelectId+'&type=imgList',
                     scriptCharset: 'utf-8'
                 }).then(function(res){
                     _this.showImgList=res.data;
@@ -248,7 +248,7 @@ export default {
                 //刷新相册
                 _this.$axios({
                     methods:'GET',
-                    url:'http://localhost:8806/index.php?type=ablumList',
+                    url:_this.Group.Url+'index.php?type=ablumList',
                     scriptCharset: 'utf-8'
                 }).then(function(res){
                     _this.ablumList=res.data;
@@ -276,7 +276,7 @@ export default {
             // data:JSON.stringify(parmar),
         _this.$axios({
             method: 'post',
-            url:'http://localhost:8806/postComment.php',
+            url:_this.Group.Url+'postComment.php',
             data: postData,
             }).then(function(res){
                 if(res.data){
@@ -293,7 +293,7 @@ export default {
           let _this=this;
             _this.$axios({
                 methods:'GET',
-                url:'http://localhost:8806/index.php?ablumid='+ablumid+'&type=imgList',
+                url:_this.Group.Url+'index.php?ablumid='+ablumid+'&type=imgList',
                 scriptCharset: 'utf-8'
             }).then(function(res){
                 _this.showImgList=res.data;

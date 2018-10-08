@@ -23,9 +23,9 @@ export default {
 #main{
   display: flex;
   max-width: 1300px;
-  min-width: 800px;
+  min-width: 1046px;
   margin: 0 auto;
-  background: url(../assets/background.jpeg);
+  background: url(../assets/main-background.jpg);
 }
 li{
     list-style: none;

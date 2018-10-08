@@ -37,7 +37,7 @@ export default {
         const _this=this;
         _this.$axios({
             methods:'GET',
-            url:'http://localhost:8806/index.php?type=Li_Heard',
+            url:_this.Group.Url+'index.php?type=Li_Heard',
                 scriptCharset: 'utf-8'
             }).then(function(res){
                  _this.Heard=res.data;
@@ -74,13 +74,13 @@ export default {
                 // data:JSON.stringify(parmar),
             _this.$axios({
                 method: 'post',
-                url:'http://localhost:8806/postComment.php',
+                url:_this.Group.Url+'postComment.php',
                 data: postData,
                 }).then(function(res){
                     _this.AddHeard='';
                     _this.$axios({
                     methods:'GET',
-                    url:'http://localhost:8806/index.php?type=Li_Heard',
+                    url:_this.Group.Url+'index.php?type=Li_Heard',
                         scriptCharset: 'utf-8'
                     }).then(function(res){
                         _this.Heard=res.data;
@@ -107,12 +107,12 @@ export default {
                     // data:JSON.stringify(parmar),
                 _this.$axios({
                     method: 'post',
-                    url:'http://localhost:8806/postComment.php',
+                    url:_this.Group.Url+'postComment.php',
                     data: postData,
                     }).then(function(res){
                         _this.$axios({
                         methods:'GET',
-                        url:'http://localhost:8806/index.php?type=Li_Heard',
+                        url:_this.Group.Url+'index.php?type=Li_Heard',
                             scriptCharset: 'utf-8'
                         }).then(function(res){
                             _this.Heard=res.data;

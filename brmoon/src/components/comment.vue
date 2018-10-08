@@ -44,7 +44,7 @@
             const _this=this;
             _this.$axios({
                 methods:'GET',
-                url:'http://localhost:8806/index.php?title=刀剑寒&type=article_comment',
+                url:_this.Group.Url+'index.php?title=刀剑寒&type=article_comment',
                     scriptCharset: 'utf-8'
                 }).then(function(res){
                     _this.comments=res.data;
@@ -90,12 +90,12 @@
                     // data:JSON.stringify(parmar),
                 _this.$axios({
                     method: 'post',
-                    url:'http://localhost:8806/postComment.php',
+                    url:_this.Group.Url+'postComment.php',
                     data: postData,
                     }).then(function(res){
                     _this.$axios({
                         methods:'GET',
-                        url:'http://localhost:8806/index.php?title='+_this.title+'&type=article_comment',
+                        url:_this.Group.Url+'index.php?title='+_this.title+'&type=article_comment',
                         scriptCharset: 'utf-8'
                     }).then(function(res){
                         _this.comments=res.data;
@@ -118,7 +118,7 @@
                 const _this=this
                 _this.$axios({
                     methods:'GET',
-                    url:'http://localhost:8806/index.php?title='+_this.title+'&type=article_comment',
+                    url:_this.Group.Url+'index.php?title='+_this.title+'&type=article_comment',
                     scriptCharset: 'utf-8'
                 }).then(function(res){
                     _this.comments=res.data;

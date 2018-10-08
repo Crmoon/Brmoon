@@ -35,7 +35,7 @@
             const _this=this;
             _this.$axios({
                 methods:'get',
-                url:'http://localhost:8806/index.php?type=article_list',
+                url:_this.Group.Url+'index.php?type=article_list',
                 scriptCharset: 'utf-8'
             }).then(function(res){
                 res.data.forEach(function(value,index){
@@ -86,7 +86,7 @@
 }
 .LeftNav>ul{
     position: absolute;;
-    left: 60%;
+    left: 50%;
 }
 a{
     font-family: "微软雅黑";
@@ -102,7 +102,11 @@ a{
     color: #888
 }
 .childlist li{
-    text-align: left
+    text-align: left;
+    cursor: pointer;
+}
+.childlist li:hover{
+    color: aqua;
 }
 
 .list-leave-active{
